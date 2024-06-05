@@ -14,7 +14,5 @@ func Page(w http.ResponseWriter, r *http.Request, component render.RenderInterfa
 
 // Components
 func Text(text string) *components.TextComponent {
-	return &components.TextComponent {
-		Text: text,
-	}
+	return components.NewText(text)
 }

@@ -1,13 +1,19 @@
 package components
 
+func NewText(text string) *TextComponent {
+	return &TextComponent{
+		text: text,
+	}
+}
+
 type TextComponent struct {
-	Text string
+	text string
 }
 
 func (t *TextComponent) Render() string {
-	return t.Text
+	return t.text
 }
 
 func (t *TextComponent) String() string {
-	return t.Text
+	return t.text
 }
