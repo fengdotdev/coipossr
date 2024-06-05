@@ -2,21 +2,23 @@ package render
 
 import "net/http"
 
-func NewPage(w http.ResponseWriter, r *http.Request, component RenderInterface) *Page {
-	return &Page{
-		r: r,
-		w: w,
-		component: component,
-	}
+
+type PageInterface interface {
+	Render() error
 }
 
-type Page struct {
+func NewWebPage(r *http.Request, w http.ResponseWriter, c RenderInterface) *WebPage {
+	return &WebPage{r: r, w: w, component: c}
+}
+
+
+type WebPage struct {
 	r 		*http.Request
 	w         http.ResponseWriter
 	component RenderInterface
 }
 
-func (p *Page)Render() error {
+func (p *WebPage)Render() error {
 	p.w.Write([]byte(p.component.RenderSSR()))
 	return nil
 }

@@ -4,8 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	. "github.com/fengdotdev/coipossr/components"
-	"github.com/fengdotdev/coipossr/render"
+	. "github.com/fengdotdev/coipossr"
 )
 
 func main() {
@@ -13,7 +12,7 @@ func main() {
 	server := http.NewServeMux()
 
 	server.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		page := render.NewPage(w, r, Text("Hello, SSR!"))
+		page := Page(w, r, Text("Hello World!"))
 		page.Render()
 	})
 
