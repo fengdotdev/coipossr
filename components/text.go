@@ -13,3 +13,7 @@ type TextComponent struct {
 func (t *TextComponent) Render() string {
 	return t.Text
 }
+
+func (t *TextComponent) String() string {
+	return t.Text
+}
