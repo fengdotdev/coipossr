@@ -10,8 +10,9 @@ type TextComponent struct {
 	text string
 }
 
-func (t *TextComponent) Render() string {
-	return t.text
+func (t *TextComponent) RenderSSR() string {
+	output := "<span>" + t.text + "</span>"
+	return output
 }
 
 func (t *TextComponent) String() string {
