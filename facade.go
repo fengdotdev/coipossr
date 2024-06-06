@@ -4,15 +4,21 @@ import (
 	"net/http"
 
 	"github.com/fengdotdev/coipossr/components"
+	"github.com/fengdotdev/coipossr/opts"
 	"github.com/fengdotdev/coipossr/render"
 )
 
 //renders
-func Page(w http.ResponseWriter, r *http.Request, component render.RenderInterface) *render.WebPage {
-	return render.NewWebPage(r, w, component)
+
+func StaticPage(component render.RenderInterface,opts ...opts.WebPageOptions) *render.StaticWebPage {
+	return render.NewStaticWebPage(component,opts...)
+}
+
+func Page(w http.ResponseWriter, r *http.Request, component render.RenderInterface,opts ...opts.WebPageOptions) *render.WebPage {
+	return render.NewWebPage(r, w, component,opts...)
 }
 
 // Components
-func Text(text string) *components.TextComponent {
-	return components.NewText(text)
+func Text(text string,opt ...opts.TextOptions) *components.TextComponent {
+	return components.NewText(text, opt...)
 }
