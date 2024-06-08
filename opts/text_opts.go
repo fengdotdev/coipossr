@@ -1,7 +1,8 @@
 package opts
 
 type TextOptions struct {
-	Id        string
-	ClassName string
 	Color     string
+	FontStyle string
+	FontSize  string
+	
 }
