@@ -6,6 +6,10 @@ import (
 
 
 
+const TextComponentClassName = "textComponent"
+
+
+
 type TextComponent struct {
 	text        string
 	id 		string
