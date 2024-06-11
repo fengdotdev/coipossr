@@ -1,17 +1,16 @@
-package components
+package txt
 
 import (
 	"github.com/fengdotdev/coipossr/helpers"
-	"github.com/fengdotdev/coipossr/opts"
 )
 
-func NewTextWithClass(text string, className string, opt ...opts.TextOptions) *TextComponent {
+func NewTextWithClass(text string, className string, opts ...TextOptions) *TextComponent {
 	id := helpers.GenerateId()
-	if len(opt) > 0 {
+	if len(opts) > 0 {
 		return &TextComponent{
 			text:        text,
 			haveOptions: true,
-			textOptions: opt[0],
+			Options: opts[0],
 			className:   className,
 			id:          id,
 		}
@@ -23,12 +22,12 @@ func NewTextWithClass(text string, className string, opt ...opts.TextOptions) *T
 	}
 }
 
-func NewTextWithIdAndClass(text string, id string, className string, opt ...opts.TextOptions) *TextComponent {
-	if len(opt) > 0 {
+func NewTextWithIdAndClass(text string, id string, className string, opts ...TextOptions) *TextComponent {
+	if len(opts) > 0 {
 		return &TextComponent{
 			text:        text,
 			haveOptions: true,
-			textOptions: opt[0],
+			Options: opts[0],
 			id:          id,
 			className:   className,
 		}
@@ -40,12 +39,12 @@ func NewTextWithIdAndClass(text string, id string, className string, opt ...opts
 	}
 }
 
-func NewTextWithId(text string, id string, opt ...opts.TextOptions) *TextComponent {
-	if len(opt) > 0 {
+func NewTextWithId(text string, id string, opts ...TextOptions) *TextComponent {
+	if len(opts) > 0 {
 		return &TextComponent{
 			text:        text,
 			haveOptions: true,
-			textOptions: opt[0],
+			Options: opts[0],
 			id:          id,
 		}
 	}
@@ -55,14 +54,15 @@ func NewTextWithId(text string, id string, opt ...opts.TextOptions) *TextCompone
 	}
 }
 
-func NewText(text string, opt ...opts.TextOptions) *TextComponent {
+
+func NewText(text string, opts ...TextOptions) *TextComponent {
 
 	id := helpers.GenerateId()
-	if len(opt) > 0 {
+	if len(opts) > 0 {
 		return &TextComponent{
 			text:        text,
 			haveOptions: true,
-			textOptions: opt[0],
+			Options: opts[0],
 			id:          id,
 		}
 	}
@@ -70,4 +70,9 @@ func NewText(text string, opt ...opts.TextOptions) *TextComponent {
 		text: text,
 		id:   id,
 	}
+}
+
+
+func Text (text string,opts...TextOptions) *TextComponent {
+	return NewText(text,opts...)
 }

@@ -6,7 +6,7 @@ import (
 
 	c "github.com/fengdotdev/coipossr"
 	"github.com/fengdotdev/coipossr/builder"
-	"github.com/fengdotdev/coipossr/opts"
+	"github.com/fengdotdev/coipossr/components/txt"
 )
 
 func main() {
@@ -16,9 +16,9 @@ func main() {
 
 
 func Static (){
-	home := c.StaticPage(c.Text("Hello, World!", opts.TextOptions{Color: "red"}))
-	contact := c.StaticPage(c.Text("Contact Us", opts.TextOptions{Color: "green"}))
-	about := c.StaticPage(c.Text("About Us", opts.TextOptions{Color: "blue"}))
+	home := c.StaticPage(txt.Text("Hello, World!", txt.TextOptions{Color: "red"}))
+	contact := c.StaticPage(txt.Text("Contact Us", txt.TextOptions{Color: "green"}))
+	about := c.StaticPage(txt.Text("About Us", txt.TextOptions{Color: "blue"}))
 	static := builder.NewStaticBuilder()
 	static.AddPage("/", *home)  
 	static.AddPage("/contact", *contact)
@@ -33,7 +33,7 @@ func Static (){
 func SSR(){
 	server := http.NewServeMux()
 	server.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		page := c.Page(w, r, c.Text("Hello, World!", opts.TextOptions{Color: "red"}))
+		page := c.Page(w, r, txt.Text("Hello, World!", txt.TextOptions{Color: "red"}))
 		page.Render()
 	})
 	port := ":1313"

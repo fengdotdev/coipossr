@@ -20,15 +20,22 @@ type StaticWebPage struct {
 }
 
 func (p *StaticWebPage) Render(w io.Writer) error {
+
+	renderObj := p.component.RenderSSR()
+
+
+
 	//p.w.Header().Set("Content-Type", "text/html")
 	w.Write([]byte("<!DOCTYPE html>"))
 	w.Write([]byte("<html>"))
 	w.Write([]byte("<head>"))
 	w.Write([]byte("<title>"+p.opts.Title+"</title>"))
 	w.Write([]byte("<link rel='icon' href='"+p.opts.FaviconUrl+"' type='image/x-icon'>"))
-	w.Write([]byte("</head>"))
+	w.Write([]byte(renderObj.Style()))
+		w.Write([]byte("</head>"))
 	w.Write([]byte("<body style='background-color:"+p.opts.BackgroundColor+"'>"))
-	w.Write([]byte(p.component.RenderSSR()))
+	w.Write([]byte(renderObj.Body()))
+	w.Write([]byte(renderObj.Script()))
 	w.Write([]byte("</body>"))
 	w.Write([]byte("</html>"))
 	return nil

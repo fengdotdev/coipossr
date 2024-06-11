@@ -3,7 +3,6 @@ package coipossr
 import (
 	"net/http"
 
-	"github.com/fengdotdev/coipossr/components"
 	"github.com/fengdotdev/coipossr/opts"
 	"github.com/fengdotdev/coipossr/render"
 )
@@ -19,6 +18,3 @@ func Page(w http.ResponseWriter, r *http.Request, component render.RenderInterfa
 }
 
 // Components
-func Text(text string,opt ...opts.TextOptions) *components.TextComponent {
-	return components.NewText(text, opt...)
-}

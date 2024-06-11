@@ -33,6 +33,14 @@ func (t *Tag) End() string {
 	return "</" + t.value + ">"
 }
 
+func TagStyle() *Tag {
+	return NewTag("style")
+}
+
+func TagScript() *Tag {
+	return NewTag("script")
+}
+
 func TagSpan() *Tag {
 	return NewTag("span")
 }
