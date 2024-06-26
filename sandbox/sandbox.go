@@ -2,19 +2,20 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 
-	c "github.com/fengdotdev/coipossr"
-	"github.com/fengdotdev/coipossr/builder"
-	"github.com/fengdotdev/coipossr/components/txt"
+	"github.com/fengdotdev/coipossr/internal/ui/colors"
 )
 
 func main() {
-	Static()
+	firstColor := colors.RandomColor()
+	fmt.Println(firstColor.Name)
+	secondColor := colors.RandomColor()
+	fmt.Println(secondColor.Name)
+	fmt.Println(colors.ColorMap())
 }
 
 
-
+/*
 func Static (){
 	home := c.StaticPage(txt.Text("Hello, World!", txt.TextOptions{Color: "red"}))
 	contact := c.StaticPage(txt.Text("Contact Us", txt.TextOptions{Color: "green"}))
@@ -40,3 +41,5 @@ func SSR(){
 	fmt.Println("Server is running at http://localhost" + port + "/")
 	http.ListenAndServe(port, server)
 }
+
+*/
