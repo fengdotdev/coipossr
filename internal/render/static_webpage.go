@@ -6,7 +6,7 @@ import (
 	"github.com/fengdotdev/coipossr/opts"
 )
 
-func NewStaticWebPage(c RenderInterface,opts ...opts.WebPageOptions) *StaticWebPage {
+func NewStaticWebPage(c Renderable,opts ...opts.WebPageOptions) *StaticWebPage {
 	if len(opts) > 0 {
 		return &StaticWebPage{component: c,opts:opts[0]}
 	}
@@ -14,7 +14,7 @@ func NewStaticWebPage(c RenderInterface,opts ...opts.WebPageOptions) *StaticWebP
 }
 
 type StaticWebPage struct {
-	component RenderInterface
+	component Renderable
 	opts 	opts.WebPageOptions
 
 }

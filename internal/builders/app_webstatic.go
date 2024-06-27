@@ -1,13 +1,25 @@
-package builder
+package builders
 
 import (
 	"fmt"
 	"os"
 	"path/filepath"
 
-	"github.com/fengdotdev/coipossr/render"
+	"github.com/fengdotdev/coipossr/internal/render"
 )
 
+
+type AppWebStatic struct{
+	
+}
+
+
+// model
+type StaticBuilder struct {
+	RootPath string
+	pages map[string]render.StaticWebPage
+}
+// constructors
 func NewStaticBuilder(outputPath ...string) *StaticBuilder {
 	rootPath := "output"
 	if len(outputPath) > 0 {
@@ -19,10 +31,7 @@ func NewStaticBuilder(outputPath ...string) *StaticBuilder {
 	}
 }
 
-type StaticBuilder struct {
-	RootPath string
-	pages map[string]render.StaticWebPage
-}
+// methods
 
 func (s *StaticBuilder) Build() error {
 	wd, err := os.Getwd()

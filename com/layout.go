@@ -1,26 +1,32 @@
-package layout
+package com
 
-import "github.com/fengdotdev/coipossr/components"
+//constants
 
-const DefaultClass = "layout"
-
+const Layo = "layout"
 const ColumnClass = DefaultClass + "-column"
-
 const RowClass = DefaultClass + "-row"
-
 const StackClass = DefaultClass + "-stack"
 
 
+//Models
 type LayoutCompoment struct {
 	id          string
 	defaultClass string
 	className   string
-	components  []components.Compoment
+	components  []Compoment
 	haveOptions bool
 	Options     LayoutOptions
 }
 
+type LayoutOptions struct {
+}
 
+// Constructors
+
+
+
+
+// Methods
 func (l *LayoutCompoment) String() string {
 	return l.className
 }

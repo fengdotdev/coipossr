@@ -6,7 +6,7 @@ import (
 	"github.com/fengdotdev/coipossr/opts"
 )
 
-func NewWebPage(r *http.Request, w http.ResponseWriter, c RenderInterface,opts ...opts.WebPageOptions) *WebPage {
+func NewWebPage(r *http.Request, w http.ResponseWriter, c Renderable,opts ...opts.WebPageOptions) *WebPage {
 	if len(opts) > 0 {
 		return &WebPage{r: r, w: w, component: c,opts:opts[0]}
 	}
@@ -16,7 +16,7 @@ func NewWebPage(r *http.Request, w http.ResponseWriter, c RenderInterface,opts .
 type WebPage struct {
 	r         *http.Request
 	w         http.ResponseWriter
-	component RenderInterface
+	component Renderable
 	opts 	opts.WebPageOptions
 }
 

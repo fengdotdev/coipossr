@@ -3,7 +3,7 @@ package render
 import (
 	"io"
 
-	"github.com/fengdotdev/coipossr/types"
+	"github.com/fengdotdev/coipossr/internal/types"
 )
 
 type RenderSSROBJ struct {
