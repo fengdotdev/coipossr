@@ -1,19 +1,12 @@
 package builders
 
-import (
-	"fmt"
-	"os"
-	"path/filepath"
-
-	"github.com/fengdotdev/coipossr/internal/render"
-)
-
 
 type AppWebStatic struct{
 	
 }
 
 
+/*
 // model
 type StaticBuilder struct {
 	RootPath string
@@ -66,4 +59,4 @@ func (s *StaticBuilder) HandleFunc(pattern string, page render.StaticWebPage) {
 
 func (s *StaticBuilder)AddPage(pattern string, page render.StaticWebPage){
 	s.pages[pattern] = page
-}
+}*/

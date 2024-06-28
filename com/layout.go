@@ -1,48 +1,60 @@
 package com
 
+import (
+	"github.com/fengdotdev/coipossr/internal/helpers"
+)
+
 //constants
 
-const Layo = "layout"
-const ColumnClass = DefaultClass + "-column"
-const RowClass = DefaultClass + "-row"
-const StackClass = DefaultClass + "-stack"
+const LayoutClass = "layout"
+const ColumnClass = LayoutClass + "-column"
+const RowClass = LayoutClass + "-row"
+const StackClass = LayoutClass + "-stack"
 
 
-//Models
+//Model
 type LayoutCompoment struct {
 	id          string
-	defaultClass string
-	className   string
-	components  []Compoment
-	haveOptions bool
-	Options     LayoutOptions
+	childs      []Compoment
+	presets     LayoutPresets
+	options     LayoutOptions
 }
 
-type LayoutOptions struct {
-}
+//settings
+	// public
+	type LayoutOptions struct {
+		Id    string
+		Groups []string
+	}
+	// private
+	type LayoutPresets struct {
+		LayoutType     string
+	}
+
 
 // Constructors
 
+func Column(childs []Compoment, opts ...LayoutOptions) *LayoutCompoment {
+	id := helpers.GenerateId()
+	presets:= LayoutPresets{
+		LayoutType: ColumnClass,
+	}
+
+	options := LayoutOptions{}
+	if len(opts) > 0 {
+		options = opts[0]
+	}
+
+	return &LayoutCompoment{
+		id:     id,
+		childs: childs,
+		presets: presets,
+		options: options,
+	}
+}
+
+// basic layouts
 
 
 
 // Methods
-func (l *LayoutCompoment) String() string {
-	return l.className
-}
-
-func (l *LayoutCompoment) Id() string {
-	return l.id
-}
-
-func (l *LayoutCompoment) ClassName() string {
-	return l.className
-}
-
-func (l *LayoutCompoment) DefaultClass() string {
-	return l.defaultClass
-}
-
-func (l *LayoutCompoment) FullClass() string {
-	return l.defaultClass + " " + l.ClassName()
-}

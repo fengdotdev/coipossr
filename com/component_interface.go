@@ -1,14 +1,12 @@
 package com
 
-import (
-	"github.com/fengdotdev/coipossr/internal/render"
-)
+import "github.com/fengdotdev/coipossr/internal/renders"
 
 // components must be inmutable and must implement the Renderable Interface and SelfInterface
 
 
 type Compoment interface {
-	render.Renderable
+	renders.Renderable
 	self()componentizable
 }
 

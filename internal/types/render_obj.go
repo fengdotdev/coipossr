@@ -1,9 +1,8 @@
-package render
+package types
 
 import (
 	"io"
 
-	"github.com/fengdotdev/coipossr/internal/types"
 )
 
 type RenderSSROBJ struct {
@@ -35,14 +34,14 @@ func (r *RenderSSROBJ) MergeHTML(html string){
 
 
 func (r *RenderSSROBJ) Script() string {
-	tag := types.TagScript()
+	tag := TagScript()
 	output := tag.Start() + r.JS + tag.End()
 	return output
 }
 
 //Inline CSS
 func (r *RenderSSROBJ) Style() string {
-	tag := types.TagStyle()
+	tag := TagStyle()
 	output := tag.Start() + r.CSS + tag.End()
 	return output
 }

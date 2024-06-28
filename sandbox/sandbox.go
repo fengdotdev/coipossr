@@ -1,17 +1,11 @@
 package main
 
 import (
-	"fmt"
 
-	"github.com/fengdotdev/coipossr/internal/ui/colors"
 )
 
 func main() {
-	firstColor := colors.RandomColor()
-	fmt.Println(firstColor.Name)
-	secondColor := colors.RandomColor()
-	fmt.Println(secondColor.Name)
-	fmt.Println(colors.ColorMap())
+	
 }
 
 

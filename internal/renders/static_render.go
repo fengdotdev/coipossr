@@ -1,9 +1,11 @@
-package render
+package renders
+
+/*
+
 
 import (
 	"io"
 
-	"github.com/fengdotdev/coipossr/opts"
 )
 
 func NewStaticWebPage(c Renderable,opts ...opts.WebPageOptions) *StaticWebPage {
@@ -40,4 +42,4 @@ func (p *StaticWebPage) Render(w io.Writer) error {
 	w.Write([]byte("</html>"))
 	return nil
 
-}
+}*/

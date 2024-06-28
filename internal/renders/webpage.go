@@ -1,10 +1,6 @@
-package render
+package renders
 
-import (
-	"net/http"
-
-	"github.com/fengdotdev/coipossr/opts"
-)
+/*
 
 func NewWebPage(r *http.Request, w http.ResponseWriter, c Renderable,opts ...opts.WebPageOptions) *WebPage {
 	if len(opts) > 0 {
@@ -42,3 +38,5 @@ func (p *WebPage) Render() error {
 	return nil
 
 }
+
+*/
