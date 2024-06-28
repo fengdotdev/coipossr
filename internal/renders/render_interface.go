@@ -9,8 +9,6 @@ type Renderable interface {
 
 //Page
 type Cratable interface {
-	self() crate
+	self() types.Crate
 }
 
-type crate struct {
-}

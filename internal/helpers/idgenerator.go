@@ -3,17 +3,23 @@ package helpers
 import "github.com/google/uuid"
 
 
+// 
+
+
+//Global function to generate a unique id
 func GenerateId(opts ...string) string {
 	idGenerator := UuidV4{}
 	return idGenerator.GenerateId()
 }
 
-
+//Global function to generate a unique id with a prefix
 func GenerateIdWithPrefix(prefix string) string {
 	idGenerator := UuidV4{}
 	return idGenerator.GenerateIdWithPrefix(prefix)
 }
 
+
+//........................ Interface ...............................
 type IdGeneratorInterface interface {
 	GenerateId() string
 	GenerateIdWithPrefix(prefix string) string

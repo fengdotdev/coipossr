@@ -5,6 +5,26 @@ import (
 	"github.com/fengdotdev/coipossr/internal/types"
 )
 
+// constructors
+
+func Text(text string,opts...TextOptions) *TextComponent {
+	id := helpers.GenerateIdWithPrefix(idPrefix)
+	presets:= TextPresets{}
+
+	options := TextOptions{}
+	if len(opts) > 0 {
+		options = opts[0]
+		id = options.Id
+	}
+
+	return &TextComponent{
+		id:     id,
+		text: text,
+		presets: presets,
+	}
+}
+
+
 // constants
 
 const textComponent = "textComponent"
@@ -17,7 +37,6 @@ type TextComponent struct {
 	id          string
 	text        string
 	presets     TextPresets
-	options     TextOptions
 }
 
 
@@ -38,26 +57,6 @@ type TextComponent struct {
 		FontSize  string
 	}
 
-// constructors
-
-func Text(text string,opts...TextOptions) *TextComponent {
-	id := helpers.GenerateIdWithPrefix(idPrefix)
-	presets:= TextPresets{}
-
-	options := TextOptions{}
-	if len(opts) > 0 {
-		options = opts[0]
-		id = options.Id
-	}
-
-	return &TextComponent{
-		id:     id,
-		text: text,
-		presets: presets,
-		options: options,
-	}
-}
-
 
 
 //methods
@@ -71,7 +70,8 @@ func (t *TextComponent) Id() string {
 }
 
 func (t *TextComponent) ClassName() string {
-	return 
+	panic("implement me")
+	return ""
 }
 
 func (t *TextComponent) DefaultClass() string {
